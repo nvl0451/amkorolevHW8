@@ -42,4 +42,9 @@ class MovieView: UITableViewCell {
         
         title.textAlignment = .center
     }
+    
+    func configure(movie: Movie) {
+        title.text = movie.title
+        poster.image = movie.poster
+    }
 }

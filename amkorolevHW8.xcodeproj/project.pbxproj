@@ -60,6 +60,7 @@
 			children = (
 				1C7F4C2427E508BC00F5EE1D /* Controllers */,
 				1C7F4C0D27E507C500F5EE1D /* AppDelegate.swift */,
+				1C7F4C1127E507C500F5EE1D /* MovieListViewController.swift */,
 				1C7F4C0F27E507C500F5EE1D /* SceneDelegate.swift */,
 				1C7F4C1927E507C700F5EE1D /* Assets.xcassets */,
 				1C7F4C1B27E507C700F5EE1D /* LaunchScreen.storyboard */,
@@ -72,7 +73,6 @@
 		1C7F4C2427E508BC00F5EE1D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				1C7F4C1127E507C500F5EE1D /* MovieListViewController.swift */,
 				1C7F4C2527E508E800F5EE1D /* MovieView.swift */,
 			);
 			path = Controllers;
