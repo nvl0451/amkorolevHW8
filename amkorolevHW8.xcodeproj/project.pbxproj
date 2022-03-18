@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		1C7F4C0E27E507C500F5EE1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7F4C0D27E507C500F5EE1D /* AppDelegate.swift */; };
 		1C7F4C1027E507C500F5EE1D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7F4C0F27E507C500F5EE1D /* SceneDelegate.swift */; };
-		1C7F4C1227E507C500F5EE1D /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7F4C1127E507C500F5EE1D /* MovieViewController.swift */; };
+		1C7F4C1227E507C500F5EE1D /* MovieListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7F4C1127E507C500F5EE1D /* MovieListViewController.swift */; };
 		1C7F4C1827E507C500F5EE1D /* amkorolevHW8.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1C7F4C1627E507C500F5EE1D /* amkorolevHW8.xcdatamodeld */; };
 		1C7F4C1A27E507C700F5EE1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C7F4C1927E507C700F5EE1D /* Assets.xcassets */; };
 		1C7F4C1D27E507C700F5EE1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C7F4C1B27E507C700F5EE1D /* LaunchScreen.storyboard */; };
@@ -20,7 +20,7 @@
 		1C7F4C0A27E507C500F5EE1D /* amkorolevHW8.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = amkorolevHW8.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C7F4C0D27E507C500F5EE1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1C7F4C0F27E507C500F5EE1D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1C7F4C1127E507C500F5EE1D /* MovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewController.swift; sourceTree = "<group>"; };
+		1C7F4C1127E507C500F5EE1D /* MovieListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewController.swift; sourceTree = "<group>"; };
 		1C7F4C1727E507C500F5EE1D /* amkorolevHW8.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = amkorolevHW8.xcdatamodel; sourceTree = "<group>"; };
 		1C7F4C1927E507C700F5EE1D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1C7F4C1C27E507C700F5EE1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -72,7 +72,7 @@
 		1C7F4C2427E508BC00F5EE1D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				1C7F4C1127E507C500F5EE1D /* MovieViewController.swift */,
+				1C7F4C1127E507C500F5EE1D /* MovieListViewController.swift */,
 				1C7F4C2527E508E800F5EE1D /* MovieView.swift */,
 			);
 			path = Controllers;
@@ -150,7 +150,7 @@
 			files = (
 				1C7F4C2627E508E800F5EE1D /* MovieView.swift in Sources */,
 				1C7F4C1827E507C500F5EE1D /* amkorolevHW8.xcdatamodeld in Sources */,
-				1C7F4C1227E507C500F5EE1D /* MovieViewController.swift in Sources */,
+				1C7F4C1227E507C500F5EE1D /* MovieListViewController.swift in Sources */,
 				1C7F4C0E27E507C500F5EE1D /* AppDelegate.swift in Sources */,
 				1C7F4C1027E507C500F5EE1D /* SceneDelegate.swift in Sources */,
 			);
@@ -298,7 +298,6 @@
 				INFOPLIST_FILE = amkorolevHW8/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -326,7 +325,6 @@
 				INFOPLIST_FILE = amkorolevHW8/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
