@@ -7,10 +7,35 @@
 
 import UIKit
 
-struct Movie {
+class Movie {
     let title: String
-    let posterPath: String
-    let poster: UIImage?
+    let posterPath: String?
+    var poster: UIImage?
+    
+    init (title: String, posterPath: String?) {
+        self.title = title
+        self.posterPath = posterPath ?? ""
+    }
+    
+    func loadPoster(completion: @escaping (UIImage?) -> Void) {
+        guard
+            let posterPath = posterPath,
+            let posterUrl = URL(string: "https://image.tmdb.org/t/p/original/\(posterPath)")
+        else {
+            return completion(nil)
+        }
+        
+        let request = URLSession.shared.dataTask(with: URLRequest(url: posterUrl)) { [weak self] data, _, _ in
+            guard
+                let data = data,
+                let image = UIImage(data: data) else {
+                    return completion(nil)
+                }
+            self?.poster = image
+            completion(image)
+        }
+        request.resume()
+    }
 }
 
 class MovieViewController: UIViewController {
@@ -22,6 +47,7 @@ class MovieViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        print("white")
         configureUI()
         DispatchQueue.global(qos: .background).async { [weak self] in
             self?.loadMovies()
@@ -42,8 +68,24 @@ class MovieViewController: UIViewController {
         tableView.reloadData()
     }
     
+    private func loadImagesforMovies(_ movies: [Movie], completion: @escaping ([Movie]) -> Void) {
+        let group = DispatchGroup()
+        for movie in movies {
+            group.enter()
+            DispatchQueue.global(qos: .background).async {
+                movie.loadPoster { _ in
+                    group.leave()
+                }
+            }
+        }
+        group.notify(queue: .main) {
+            completion(movies)
+        }
+    }
+    
     private func loadMovies() {
-        guard let url = URL(string: "https://api.themoviedb.org/3/discover.movie?api_key=\(apiKey)&language=ruRu") else {
+        guard let url = URL(string: "https://api.themoviedb.org/3/discover/movie?api_key=\(apiKey)&language=ruRu") else {
+            print("fuck")
             return assertionFailure("error: url problem")
         }
         let session = URLSession.shared.dataTask(with: URLRequest(url: url), completionHandler: { [weak self] data, _, _ in
@@ -55,12 +97,15 @@ class MovieViewController: UIViewController {
             let movies: [Movie] = results.map { params in
                 let title = params["title"] as! String
                 let imagePath = params["poster_path"] as? String
-                return Movie(title: title, posterPath: imagePath ?? "", poster: nil)
+                return Movie(title: title, posterPath: imagePath ?? "")
             }
             
-            self?.movies = movies
-            DispatchQueue.main.async {
-                self?.tableView.reloadData()
+            self?.loadImagesforMovies(movies) { movies in
+                self?.movies = movies
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                    print(movies.count)
+                }
             }
         })
         

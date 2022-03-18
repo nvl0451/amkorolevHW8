@@ -15,7 +15,12 @@ class MovieView: UITableViewCell {
     
     init() {
         super.init(style: .default, reuseIdentifier: Self.identifier)
-        
+        configureUI()
+    }
+    
+    override init(style:UITableViewCell.CellStyle ,reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        configureUI()
     }
     
     required init?(coder: NSCoder) {
@@ -29,6 +34,7 @@ class MovieView: UITableViewCell {
         addSubview(title)
         
         NSLayoutConstraint.activate([
+            heightAnchor.constraint(equalToConstant: 230),
             poster.topAnchor.constraint(equalTo: topAnchor),
             poster.leadingAnchor.constraint(equalTo: leadingAnchor),
             poster.trailingAnchor.constraint(equalTo: trailingAnchor),
